@@ -2,7 +2,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { PassThrough } from "node:stream";
-import { describe, expect, expectTypeOf, it } from "vitest";
+import { describe, expect, expectTypeOf, it } from "vite-plus/test";
 import {
   createExcelSchema,
   createWorkbookStream,
@@ -82,13 +82,14 @@ describe("public stream api", () => {
     });
 
     // @ts-expect-error contextful schemas always require context
-    const _missingContextInput: WorkbookStreamResolvedTableOptions<
+    const missingContextInput: WorkbookStreamResolvedTableOptions<
       typeof schema,
       { include: ["memberships"] }
     > = {
       schema,
       select: { include: ["memberships"] },
     };
+    void missingContextInput;
   });
 
   it("supports flat column groups in streamed native Excel table schemas", async () => {
