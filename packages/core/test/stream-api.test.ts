@@ -2,7 +2,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { PassThrough } from "node:stream";
-import { describe, expect, expectTypeOf, it } from "vitest";
+import { describe, expect, expectTypeOf, it } from "vite-plus/test";
 import {
   createExcelSchema,
   createWorkbookStream,
@@ -82,13 +82,14 @@ describe("public stream api", () => {
     });
 
     // @ts-expect-error contextful schemas always require context
-    const _missingContextInput: WorkbookStreamResolvedTableOptions<
+    const missingContextInput: WorkbookStreamResolvedTableOptions<
       typeof schema,
       { include: ["memberships"] }
     > = {
       schema,
       select: { include: ["memberships"] },
     };
+    void missingContextInput;
   });
 
   it("supports flat column groups in streamed native Excel table schemas", async () => {
@@ -180,8 +181,10 @@ describe("public stream api", () => {
     });
 
     const content = Buffer.concat(chunks).toString("latin1");
-    expect(content).toContain("<f>([@[Amount]]*2)</f>");
-    expect(content).toContain("<f>([@[Double amount]]+[@[Amount]])</f>");
+    expect(content).toContain("<f>(orders[[#This Row],[Amount]]*2)</f><v>6</v>");
+    expect(content).toContain(
+      "<f>(orders[[#This Row],[Double amount]]+orders[[#This Row],[Amount]])</f><v>9</v>",
+    );
   });
 
   it("supports aggregating dynamic groups from later stream report formulas", async () => {
@@ -262,8 +265,12 @@ describe("public stream api", () => {
     });
 
     const content = Buffer.concat(chunks).toString("latin1");
-    expect(content).toContain("<f>SUM([@[Double amount]],[@[Triple amount]])</f>");
-    expect(content).toContain("<f>COUNT([@[Double amount]],[@[Triple amount]])</f>");
+    expect(content).toContain(
+      "<f>SUM(orders[[#This Row],[Double amount]],orders[[#This Row],[Triple amount]])</f><v>15</v>",
+    );
+    expect(content).toContain(
+      "<f>COUNT(orders[[#This Row],[Double amount]],orders[[#This Row],[Triple amount]])</f><v>2</v>",
+    );
   });
 
   it("does not require context for stream groups without a context parameter", async () => {

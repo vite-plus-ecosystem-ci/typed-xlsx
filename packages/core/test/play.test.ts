@@ -1,7 +1,8 @@
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { faker } from "@faker-js/faker";
-import { describe, it } from "vitest";
+import { describe, it } from "vite-plus/test";
 import { createExcelSchema, createWorkbook } from "../src";
 
 describe("should generate the play excel file", () => {
@@ -41,7 +42,7 @@ describe("should generate the play excel file", () => {
 
     const file = workbook.toUint8Array();
 
-    const outputPath = path.resolve(import.meta.dirname, "../examples/playground.xlsx");
+    const outputPath = path.join(os.tmpdir(), "typed-xlsx-playground-test.xlsx");
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });
     fs.writeFileSync(outputPath, file);
   });

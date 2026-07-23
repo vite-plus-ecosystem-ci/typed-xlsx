@@ -36,7 +36,17 @@
     "@changesets/cli": "2.30.0",
     "turbo": "2.5.8",
     "typescript": "6.0.2",
-    "vite-plus": "0.1.15"
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
   },
-  "packageManager": "bun@1.3.6"
+  "overrides": {
+    "vite": "catalog:",
+    "vitest": "catalog:"
+  },
+  "packageManager": "bun@1.3.6",
+  "catalog": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@0.0.0-commit.57939439ddcb16d9f54ebf7d41432893182ee46d",
+    "vitest": "4.1.10",
+    "vite-plus": "0.0.0-commit.57939439ddcb16d9f54ebf7d41432893182ee46d"
+  }
 }
