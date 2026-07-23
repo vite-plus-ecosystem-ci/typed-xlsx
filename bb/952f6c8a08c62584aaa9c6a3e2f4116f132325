@@ -1,0 +1,29 @@
+bun.lock
+  s_80ef525179d670::t_463107bee1f815 72-73,77,1127,1129,1131,1133,1135,1137,1139,1141,1143,1175,1323,1789,2179,2931,3001,3015,3025,3027
+package.json
+  s_f3f294451c11fb::t_8af7fd6a06c767 48,50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "bb952f6c8a08c62584aaa9c6a3e2f4116f132325",
+  "prompts": {},
+  "sessions": {
+    "s_80ef525179d670": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_073404b8effei3JxdiFM2x38nQ",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "wan9chi <dk4rest@gmail.com>"
+    },
+    "s_f3f294451c11fb": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_073404a0affehFNSUPFu3b7jw6",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "wan9chi <dk4rest@gmail.com>"
+    }
+  }
+}
