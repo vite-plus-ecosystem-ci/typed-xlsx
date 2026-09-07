@@ -13,6 +13,7 @@ export default defineConfig({
     ignorePatterns: ["build/**", "node_modules/**"],
   },
   pack: {
+    deps: { resolveDepSubpath: true },
     clean: true,
     dts: true,
     entry: ["./src/index.ts"],
