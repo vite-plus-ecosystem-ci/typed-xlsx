@@ -265,8 +265,8 @@ useWidget(root, (s) => revealOnScroll(s));
         <div class="mright">
           <div class="spec msheet" :style="sheetStyle">
             <div class="sfbar">
-              <span class="ref">{{ refCell }}</span
-              ><span class="fxs">fx</span><span class="val">{{ refVal }}</span>
+              <span class="ref">{{ refCell }}</span><span class="fxs">fx</span
+              ><span class="val">{{ refVal }}</span>
             </div>
             <div class="sgrid" :style="gridStyle">
               <div class="s lt" />

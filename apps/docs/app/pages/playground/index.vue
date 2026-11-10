@@ -188,8 +188,10 @@ const tourThumb = getWorkbookThumb("kitchen-sink");
           >
             <i class="edge edge-b" /><i class="edge edge-l" />
             <div class="pf">
-              <span class="ttl">{{ p.track.toUpperCase() }}</span
-              ><span class="band" /><span class="lbl">{{ p.name }}</span>
+              <span class="ttl">{{ p.track.toUpperCase() }}</span><span class="band" /><span
+                class="lbl"
+                >{{ p.name }}</span
+              >
             </div>
           </div>
         </div>
@@ -209,8 +211,7 @@ const tourThumb = getWorkbookThumb("kitchen-sink");
                 :to="`/playground/kitchen-sink?sheet=${i}`"
                 @mouseenter="pull(i, true)"
                 @focus="pull(i, true)"
-                ><span class="sq" /><b>{{ p.name.slice(0, 2) }}</b
-                >{{ p.name.slice(3) }}</NuxtLink
+                ><span class="sq" /><b>{{ p.name.slice(0, 2) }}</b>{{ p.name.slice(3) }}</NuxtLink
               >
             </li>
           </ol>

@@ -440,27 +440,17 @@ useSeo({
       </div>
 
       <div class="wb-tb">
-        <div>
-          <span>WORKBOOK</span><b>{{ artifact.title.toUpperCase() }}</b>
-        </div>
-        <div>
-          <span>BUILDER</span><code class="ac">{{ builder }}</code>
-        </div>
+        <div><span>WORKBOOK</span><b>{{ artifact.title.toUpperCase() }}</b></div>
+        <div><span>BUILDER</span><code class="ac">{{ builder }}</code></div>
         <div>
           <span>SHEETS</span
           ><code>{{
             preview?.sheets.length ?? artifact.inspectSummary?.sheetNames.length ?? 0
           }}</code>
         </div>
-        <div>
-          <span>OOXML PARTS</span><code>{{ inspectFiles.length }} files</code>
-        </div>
-        <div>
-          <span>FEATURES</span><code>{{ artifact.features.length }}</code>
-        </div>
-        <div>
-          <span>DATASET</span><code>{{ artifact.datasetProfile }}</code>
-        </div>
+        <div><span>OOXML PARTS</span><code>{{ inspectFiles.length }} files</code></div>
+        <div><span>FEATURES</span><code>{{ artifact.features.length }}</code></div>
+        <div><span>DATASET</span><code>{{ artifact.datasetProfile }}</code></div>
       </div>
       <p class="wb-sum">{{ getArtifactPlaygroundSummary(artifact) }}</p>
 
@@ -552,8 +542,8 @@ useSeo({
             </div>
           </div>
           <div class="sfb">
-            <span class="ref">{{ selected ?? "" }}</span
-            ><span class="fxs">fx</span><span class="val">{{ formulaBar }}</span>
+            <span class="ref">{{ selected ?? "" }}</span><span class="fxs">fx</span
+            ><span class="val">{{ formulaBar }}</span>
           </div>
           <div ref="gscroll" class="gscroll" @scroll.passive="drawLink">
             <XlsxSheet
@@ -574,9 +564,7 @@ useSeo({
           </div>
           <div class="drawer" :class="{ open: drawerOpen && inspector.length }">
             <div class="dr-h">
-              <span
-                >Cell <b>{{ selected }}</b> in the file</span
-              >
+              <span>Cell <b>{{ selected }}</b> in the file</span>
               <button type="button" aria-label="Close inspector" @click="drawerOpen = false">
                 <UIcon name="i-lucide-x" class="ic" />
               </button>

@@ -304,9 +304,7 @@ const freezeLines = computed(() => {
     </div>
     <ol v-if="marks.length" class="sf-legend">
       <li v-for="o in overlays" :key="'l' + o.i" :style="{ '--mc': o.color }">
-        <span class="badge">{{ o.i + 1 }}</span
-        ><code>{{ o.range }}</code
-        ><span>{{ o.label }}</span>
+        <span class="badge">{{ o.i + 1 }}</span><code>{{ o.range }}</code><span>{{ o.label }}</span>
       </li>
     </ol>
     <figcaption v-if="caption">{{ caption }}</figcaption>

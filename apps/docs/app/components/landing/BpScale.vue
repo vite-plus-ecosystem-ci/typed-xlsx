@@ -268,9 +268,7 @@ useWidget(root, (s) => {
         <div class="counter">
           <h2>Same schema. Any size.</h2>
           <span class="rows">{{ rowsText }}</span>
-          <div class="rows-sub">
-            <span>rows in one sheet</span><b>{{ batchesText }}</b>
-          </div>
+          <div class="rows-sub"><span>rows in one sheet</span><b>{{ batchesText }}</b></div>
           <div class="builder">
             <div class="bl" :class="{ on: mode === 'buffered' }">
               <code>createWorkbook()</code><span>buffered</span>
@@ -295,9 +293,7 @@ useWidget(root, (s) => {
             <span class="k">{{ st.k }}</span>
             <span class="v"
               >{{ st.v }}<small>{{ st.u }}</small
-              ><span v-if="st.v2" class="v2"
-                >{{ st.v2 }}<small>{{ st.u2 }}</small></span
-              ></span
+              ><span v-if="st.v2" class="v2">{{ st.v2 }}<small>{{ st.u2 }}</small></span></span
             >
           </div>
           <p class="st-note">

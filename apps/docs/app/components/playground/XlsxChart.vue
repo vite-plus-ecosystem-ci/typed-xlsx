@@ -563,12 +563,7 @@ const plot = computed(() => {
 .xc {
   display: block;
   overflow: visible;
-  font-family:
-    Calibri,
-    "Segoe UI",
-    -apple-system,
-    Arial,
-    sans-serif;
+  font-family: Calibri, "Segoe UI", -apple-system, Arial, sans-serif;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 .xc-legend {

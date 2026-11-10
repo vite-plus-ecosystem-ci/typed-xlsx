@@ -283,10 +283,7 @@ useWidget(root, (s) => {
               @blur="focus = null"
             >
               <span class="no">{{ i + 1 }}</span>
-              <span class="pt"
-                ><b>{{ c.title }}</b
-                ><code v-html="esc(c.code)"
-              /></span>
+              <span class="pt"><b>{{ c.title }}</b><code v-html="esc(c.code)" /></span>
             </button>
           </div>
           <div class="tblock">
