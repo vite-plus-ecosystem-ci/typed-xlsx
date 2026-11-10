@@ -1,5 +1,23 @@
 # typed-xlsx
 
+## 4.4.0
+
+### Minor Changes
+
+- [#71](https://github.com/ChronicStone/typed-xlsx/pull/71) [`00cce8a`](https://github.com/ChronicStone/typed-xlsx/commit/00cce8a55b512ec538c988cad05ce0b7e3cb3afe) Thanks [@ChronicStone](https://github.com/ChronicStone)! - Type errors now point at the exact mistake and say what would fit.
+
+  - `.column()` has a single signature instead of 14 overloads, so a mistake is reported on the key at fault instead of "No overload matches this call". An unknown option lists the options of that column kind, a field typo lists the fields and suggests the closest one, and a column kind checks what its accessor holds (a checkbox needs a boolean field).
+  - `.table()` reports unknown options with the options of the schema kind, and `select` lists the column ids.
+  - Charts: a non-numeric `y` says which columns are numeric, an unknown mark or chart option is reported (a chart callback returning `titel` used to compile).
+  - Pivots: aggregating a text column says it can only be counted, date grouping names the date columns, and unknown options are reported.
+  - Report schemas no longer accept Excel table options such as `totalsRow`: `build()` now returns the schema with its kind.
+
+### Patch Changes
+
+- [#74](https://github.com/ChronicStone/typed-xlsx/pull/74) [`aa596cc`](https://github.com/ChronicStone/typed-xlsx/commit/aa596cc5c56926f5b4f815e77c21b5e69d653d4b) Thanks [@ChronicStone](https://github.com/ChronicStone)! - Ship an agent skill for coding agents in `skills/typed-xlsx`: how to shape data for a sheet, which column technique fits, multi-sheet and streamed exports, and how to read type errors. Install it with `npx skills add ChronicStone/typed-xlsx`.
+
+- [#70](https://github.com/ChronicStone/typed-xlsx/pull/70) [`d8df36e`](https://github.com/ChronicStone/typed-xlsx/commit/d8df36e5be4f06ddbbc007a247f291b8c0fd121e) Thanks [@ChronicStone](https://github.com/ChronicStone)! - Refresh the npm README: a runnable first example, measured streaming numbers and a gallery of real workbooks.
+
 ## 4.3.0
 
 ### Minor Changes
