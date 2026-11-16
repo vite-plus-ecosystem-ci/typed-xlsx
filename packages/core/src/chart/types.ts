@@ -208,23 +208,21 @@ type IsSingleSeries<TY> = TY extends string ? true : TY extends { column: string
 
 /** Readable `✗ …` requirements for options that only make sense together. */
 type ChartSeriesOptionProblems<TOptions> = TOptions extends { x: { dynamic: string } }
-  ?
-      | (TOptions extends { series: string }
+  ? | (TOptions extends { series: string }
+        ? never
+        : "a mark with x: { dynamic } needs series: the column naming each row")
+    | (TOptions extends { y: unknown }
+        ? "a mark with x: { dynamic } takes its values from the dynamic columns, so drop y"
+        : never)
+  : | (TOptions extends { y: unknown } ? never : "this mark needs y: the column(s) to plot")
+    | (TOptions extends { series: unknown } ? "series only applies with x: { dynamic }" : never)
+    | (TOptions extends { y: infer TY }
+        ? IsSingleSeries<TY> extends true
           ? never
-          : "a mark with x: { dynamic } needs series: the column naming each row")
-      | (TOptions extends { y: unknown }
-          ? "a mark with x: { dynamic } takes its values from the dynamic columns, so drop y"
-          : never)
-  :
-      | (TOptions extends { y: unknown } ? never : "this mark needs y: the column(s) to plot")
-      | (TOptions extends { series: unknown } ? "series only applies with x: { dynamic }" : never)
-      | (TOptions extends { y: infer TY }
-          ? IsSingleSeries<TY> extends true
-            ? never
-            : TOptions extends { name: unknown } | { color: unknown }
-              ? "name and color apply to a single y column; set them per column with { column, name, color }"
-              : never
-          : never);
+          : TOptions extends { name: unknown } | { color: unknown }
+            ? "name and color apply to a single y column; set them per column with { column, name, color }"
+            : never
+        : never);
 
 export type ChartSeriesOptionsGuard<TOptions> = [ChartSeriesOptionProblems<TOptions>] extends [
   never,

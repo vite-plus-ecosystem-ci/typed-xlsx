@@ -537,8 +537,7 @@ useWidget(root, (s) => {
         </div>
         <ol class="bw-steps">
           <li v-for="(st, i) in STEPS" :key="st.b" :data-s="i + 1">
-            <b>{{ st.b }}</b
-            ><span>{{ st.t }}</span>
+            <b>{{ st.b }}</b><span>{{ st.t }}</span>
           </li>
         </ol>
       </div>

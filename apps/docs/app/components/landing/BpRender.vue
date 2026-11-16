@@ -426,8 +426,7 @@ useWidget(root, (s) => {
               @mouseenter="pick(f.i)"
               @click="pick(f.i)"
             >
-              <span class="n">{{ String(f.i + 1).padStart(2, "0") }}</span
-              >{{ f.name }}
+              <span class="n">{{ String(f.i + 1).padStart(2, "0") }}</span>{{ f.name }}
             </button>
           </div>
         </div>
@@ -437,8 +436,8 @@ useWidget(root, (s) => {
             <div class="ghost g1" />
             <div class="spec">
               <div class="sfbar">
-                <span class="ref">{{ refText }}</span
-                ><span class="fxs">fx</span><span class="val">{{ valText }}</span>
+                <span class="ref">{{ refText }}</span><span class="fxs">fx</span
+                ><span class="val">{{ valText }}</span>
               </div>
               <div class="sgrid-wrap">
                 <div class="sgrid" :style="gridStyle" v-html="gridHtml" />

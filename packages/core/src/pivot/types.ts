@@ -127,19 +127,18 @@ type FieldList<TValue> = TValue extends readonly unknown[]
 
 /** Value keys that are not columns of the source table, and values given no aggregation. */
 type PivotValueProblems<TOptions, TColumns> = TOptions extends { values: infer TValues }
-  ?
-      | (unknown extends TColumns
-          ? never
-          : Exclude<keyof TValues, keyof TColumns> extends infer TUnknown
-            ? TUnknown extends string
-              ? `value "${TUnknown}" is not a column of the table`
-              : never
-            : never)
-      | {
-          [K in keyof TValues & string]: TValues[K] extends readonly []
-            ? `value "${K}" needs at least one aggregation`
-            : never;
-        }[keyof TValues & string]
+  ? | (unknown extends TColumns
+        ? never
+        : Exclude<keyof TValues, keyof TColumns> extends infer TUnknown
+          ? TUnknown extends string
+            ? `value "${TUnknown}" is not a column of the table`
+            : never
+          : never)
+    | {
+        [K in keyof TValues & string]: TValues[K] extends readonly []
+          ? `value "${K}" needs at least one aggregation`
+          : never;
+      }[keyof TValues & string]
   : never;
 
 type PivotOptionProblems<TOptions, TColumns = unknown> =
