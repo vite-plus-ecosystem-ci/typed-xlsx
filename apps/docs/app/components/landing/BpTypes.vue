@@ -484,8 +484,7 @@ useWidget(root, (s) => {
           <div class="ty-data">
             <div class="ty-name"><i>type</i> <b>Invoice</b></div>
             <div v-for="f in FIELDS" :key="f.name" class="ty-field" :data-f="f.name">
-              <span class="nm"
-                >{{ f.name }}: <i>{{ f.type }}</i></span
+              <span class="nm">{{ f.name }}: <i>{{ f.type }}</i></span
               ><span class="as" :class="{ no: !f.cell }">{{ f.cell ?? "no cell" }}</span>
             </div>
             <div class="ty-note">

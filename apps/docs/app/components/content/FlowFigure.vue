@@ -25,10 +25,7 @@ withDefaults(
     <ol class="ff-row">
       <li v-for="(s, i) in steps" :key="s.cap" class="ff-step" :class="{ accent: s.accent }">
         <div class="ff-node">
-          <span class="ff-cap"
-            ><b>{{ String(i + 1).padStart(2, "0") }}</b
-            >{{ s.cap }}</span
-          >
+          <span class="ff-cap"><b>{{ String(i + 1).padStart(2, "0") }}</b>{{ s.cap }}</span>
           <code v-if="s.code" class="ff-code">{{ s.code }}</code>
           <span v-if="s.note" class="ff-note">{{ s.note }}</span>
         </div>
