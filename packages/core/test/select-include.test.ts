@@ -1,5 +1,5 @@
 import { unzipSync } from "fflate";
-import { describe, expect, it, vi } from "vitest";
+import { describe, expect, it, vi } from "vite-plus/test";
 import { createExcelSchema, createWorkbook, createWorkbookStream } from "../src";
 
 type Row = { id: string; net: number; tax: number; x: number; months: Record<string, number> };

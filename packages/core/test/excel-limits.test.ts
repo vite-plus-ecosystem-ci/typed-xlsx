@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "vite-plus/test";
 import { createExcelSchema, createWorkbook, createWorkbookStream } from "../src";
 import { buildWorksheetNames } from "../src/ooxml/sheet-names";
 import { EXCEL_MAX_ROWS } from "../src/workbook/internal/limits";
